@@ -146,3 +146,45 @@ mvmt_plt + coord_cartesian(ylim = c(0, 30))
 - Activity bouts gradually increase from 6 am to 12 pm, plateau at 12 pm, remain constant and high from 12 to 6pm, and gradually decrease from 6pm to 12am.
 - On average, across all education levels and across both sexes, activity  bouts are around 2 bouts at low and around 15 bouts at high. 
 - Some people with a more than high school education level are pretty active (activity around 60) from 6am to around 9 or 10am.  
+
+## Problem 3  
+
+```{r load cvs files, message = FALSE}
+jan_20_df <- read_csv("citibike/Jan 2020 Citi.csv") |> 
+  janitor::clean_names() |> 
+  mutate(
+    year = 2020,
+    month = 'january'
+  ) |> 
+  relocate(year, month)
+
+jan_24_df <- read_csv("citibike/Jan 2024 Citi.csv")|> 
+  janitor::clean_names()|> 
+  mutate(
+    year = 2024,
+    month = 'january'
+  ) |> 
+  relocate(year, month)
+
+jul_20_df <- read_csv("citibike/July 2020 Citi.csv") |> 
+  janitor::clean_names()|> 
+  mutate(
+    year = 2020,
+    month = 'july`'
+  ) |> 
+  relocate(year, month)
+
+jul_24_df <- read_csv("citibike/July 2024 Citi.csv") |> 
+  janitor::clean_names()|> 
+  mutate(
+    year = 2024,
+    month = 'july'
+  ) |> 
+  relocate(year, month)
+```
+  
+the total number of rides in each combination of year and month separating casual riders and Citi Bike members  
+```{r}
+jan_20_df
+```
+
